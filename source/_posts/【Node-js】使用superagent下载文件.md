@@ -6,3 +6,7 @@ type: node.js
 comments: true
 categories: 心得笔记
 ---
+
+```js
+console.log('test');
+```
