@@ -1,6 +1,14 @@
-# Created by .ignore support plugin (hsz.mobi)
+
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
 .idea
 node_modules
 blog.key
 restart.bat
 debug.log
+themes
