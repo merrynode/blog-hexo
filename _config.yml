@@ -3,6 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
+<<<<<<< HEAD
 title: Hexo
 subtitle:
 description:
@@ -13,6 +14,19 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
+=======
+title: 兔子先生的博客
+subtitle:
+description: 兔子窝
+author: 兔子先生
+language: zh-Hans
+timezone: Asia/Shanghai
+#avatar: /uploads/head.png
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://noder.club
+>>>>>>> aa48fe3430cd64e5d16bfc3ae0a27362d9ffae73
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -44,7 +58,11 @@ highlight:
   tab_replace:
 
 # Category & Tag
+<<<<<<< HEAD
 default_category: uncategorized
+=======
+default_category: 心得笔记
+>>>>>>> aa48fe3430cd64e5d16bfc3ae0a27362d9ffae73
 category_map:
 tag_map:
 
@@ -63,9 +81,26 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+<<<<<<< HEAD
 theme: landscape
+=======
+theme: next
+>>>>>>> aa48fe3430cd64e5d16bfc3ae0a27362d9ffae73
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+<<<<<<< HEAD
+=======
+
+# title, chinese available
+links_title: 友情链接
+# links
+links:
+  小鱼: http://blog.wanan.me/
+  geemo: http://geemo.top/
+  天道总司: http://zhaoyuxiang.cn/
+#duoshuo
+duoshuo_shortname: robbit
+>>>>>>> aa48fe3430cd64e5d16bfc3ae0a27362d9ffae73
