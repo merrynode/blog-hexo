@@ -8,5 +8,5 @@ categories: 心得笔记
 ---
 
 ```js
-console.log('test2');
+console.log('test23');
 ```
