@@ -17,9 +17,9 @@ categories: 心得笔记
 ### 解决方案如下
 
 ```js
-let _setImmediate = setImmediate;
+let _setImmediate = setImmediate;   // 声明_setImmediate暂存setImmediate的引用
 process.once('loaded', function() {
-  global.setImmediate = _setImmediate;
+  global.setImmediate = _setImmediate;  // 等待进程加载后将引用重新挂载到setImmediate
 });
 ```
 
