@@ -9,9 +9,9 @@ categories: 心得笔记
 
 ----
 
-> 在electron渲染的页面中使用superagent经常会报setImmediate is not defined!
-> 原因是预加载的脚本执行的时候setImmediate函数仍然可用，但是web页面开始加载时
-> node的global会被清除，所以会出现setImmediate is not defined的错误。
+> 在`electron`渲染的页面中使用`superagent`经常会报`setImmediate is not defined!`
+> 原因是预加载的脚本执行的时候`setImmediate`函数仍然可用，但是web页面开始加载时
+> `node`的`global`会被清除，所以会出现`setImmediate is not defined`的错误。
 
 ----
 ### 解决方案如下
