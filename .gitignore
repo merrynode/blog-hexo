@@ -1,3 +1,4 @@
+!_config.yml
 .DS_Store
 Thumbs.db
 db.json
@@ -7,5 +8,4 @@ node_modules/
 public/
 .deploy*/
 themes
-!_config.yml
 .idea
