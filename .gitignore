@@ -7,4 +7,5 @@ node_modules/
 public/
 .deploy*/
 themes
+!_config.yml
 .idea
