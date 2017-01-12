@@ -53,7 +53,7 @@ cnpm install superagent --save
             download.on('error', (error) => reject(error));
 
             stream.on('pipe', function (write) {
-                let count = 0;                                  // 用于统计已下载文件
+                let size = 0;                                  // 用于统计已下载文件
                 let lastResponseTime = Date.now();              // 最后收到data数据的时间
                 let fileSize = write.headers['content-length']; // 下载文件大小
 
@@ -70,7 +70,7 @@ cnpm install superagent --save
                 
                 // 收到data则更新最后响应时间
                 write.on('data', (data) => {
-                    count += data.length;
+                    size += data.length;
                     lastResponseTime = Date.now();
                 });
 
@@ -81,17 +81,22 @@ cnpm install superagent --save
                 });
 
                 // 检测文件名如果没有文件名则退出下载
-                if (!(write.headers && write.headers['content-disposition'])) {
+                let checkFileName = !(write.headers && write.headers['content-disposition']);
+
+                if (checkFileName) {
                     fs.existsSync(path) && fs.unlinkSync(path); // 删除创建的临时文件
                     write.unpipe();                             // 关闭管道
                     download.close();                           // 退出
-                } else {
-                    write.headers['content-disposition'] // 例:attachment; filename="filename.xls"
-                    // todo 如果需要下载后修改原始文件名, 这里可以记录服务器返回的文件名然后下载完成后再修改.
-                }
+                    return;
+                } 
+
+                write.headers['content-disposition'] // 例:attachment; filename="filename.xls"
+                // todo 如果需要下载后修改原始文件名, 这里可以记录服务器返回的文件名然后下载完成后再修改.
+                write.headers['content-length']
+                // todo 下载文件大小, 可以和size写一个下载进度条.
             })
         })
     }
 ```
-# 续
+## 注
 > **需要注意的是有些网站使用`gzip`压缩, `header`中可能不包含`content-length`;**
