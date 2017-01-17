@@ -34,3 +34,33 @@ vim /etc/profile
 ```bash
 /usr/bin/mongod --dbpath /var/lib/mongodb/ --logpath /var/log/mongodb/mongodb.log --logappend  &
 ```
+
+### 添加账户验证
+进入mongo命令行
+```bash
+mongo
+```
+切换至admin
+```bash
+use admin
+```
+添加读写权限用户
+```bash
+db.createUser(
+   {
+     user: "rwmemes",
+     pwd: "rabbit",
+     roles: [ {role:"readWrite", db:"owner"} ]
+   }
+)
+```
+退出
+```bash
+exit
+```
+### 开启权限验证
+在刚才的启动参数后面添加上`--auth`就可以开启权限验证
+```bash
+/usr/bin/mongod --dbpath /var/lib/mongodb/ --logpath /var/log/mongodb/mongodb.log --logappend  &
+```
+注：**需要先杀掉刚才后台运行的`mongoDB`**
