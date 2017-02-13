@@ -8,7 +8,7 @@ categories: 心得笔记
 ---
 # 单例模式
 ### 单例模式的核心是确保只有一个实例，并提供全局访问
-1. 使用命名空间
+#### 1. 使用命名空间
 ```js
 var namespace1 = {
     a: function () {
@@ -47,7 +47,7 @@ var MyApp = {
     }
 }
 ```
-2. 使用闭包封装私有变量
+#### 2. 使用闭包封装私有变量
 ```js
 var user = (function () {
     var _name = 'sven';
@@ -63,7 +63,7 @@ var user = (function () {
 
 # 惰性单例模式
 ### 惰性单例模式是指在需要的时候才创建的对象实例
-1. 简单的惰性单例
+#### 1. 简单的惰性单例
 ```js
     Single.getInstance = (function () {
         var instance;
@@ -75,7 +75,7 @@ var user = (function () {
         }
     })()
 ```
-2. 通用的惰性单例【单一职责原则】
+#### 2. 通用的惰性单例【单一职责原则】
 ```js
 function single (fn) {
     var result;
