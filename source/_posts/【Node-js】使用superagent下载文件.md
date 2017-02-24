@@ -6,6 +6,7 @@ type: node.js
 comments: true
 categories: 心得笔记
 ---
+
 # 说明
 > superagent模块是nodejs里一个十分语义化,轻量级的请求模块,可读性高，低学习曲线这也是我特别喜欢这个模块的原因，支持`callback`或者`Promise`, 同时可以用于浏览器!
 ### 简单的实例

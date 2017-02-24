@@ -75,7 +75,9 @@ var user = (function () {
         }
     })()
 ```
+
 #### 2. 通用的惰性单例【单一职责原则】
+
 ```js
 function single (fn) {
     var result;

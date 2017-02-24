@@ -19,6 +19,7 @@ categories: 心得笔记
 ----
 
 * ### 在主进程定义一个全局变量保存socket连接
+
 ```js
 const io = require('socket.io-client');
 const socket = io('http://localhost');  //连接socket
