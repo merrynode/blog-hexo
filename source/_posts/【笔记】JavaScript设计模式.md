@@ -1,5 +1,5 @@
 ---
-title: 【设计模式】JavaScript单例模式
+title: 【设计模式】JavaScript设计模式
 date: 2017-03-13 20:42:47
 tags: [javaScript, 设计模式]
 type: javaScript
