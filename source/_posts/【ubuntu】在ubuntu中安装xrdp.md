@@ -34,3 +34,41 @@ sudo sed -i.bak '/fi/a #xrdp multiple users configuration \n cinnamon-session \n
 然后就可以愉快的连上ubuntu折腾了，如下图，之后我会写一篇如何用网页连接远程桌面。
 
 ![](http://p1.bqimg.com/567571/d42ec2201d022743.png)
+
+xrdp的配置文件在/etc/xrdp目录下的xrdp.ini和sesman.ini
+xrdp.ini
+```vim
+[globals]
+bitmap_cache=yes       #位图缓存
+bitmap_compression=yes #位图压缩
+port=3389              #监听端口
+crypt_level=low        #加密程度（low为40位，high为128位，medium为双40位）
+channel_code=1         #如果设置为0，false或no，此选项将禁用所有通道
+```
+sesman.ini
+```vim
+[Globals]
+ListenAddress=127.0.0.1      #监听ip地址(默认即可)
+ListenPort=3350              #监听端口(默认即可)
+EnableUserWindowManager=1    #1为开启,可让用户自定义自己的启动脚本
+UserWindowManager=startwm.sh
+DefaultWindowManager=startwm.sh
+
+[Security]
+AllowRootLogin=1              #允许root登陆
+MaxLoginRetry=4               #最大重试次数
+TerminalServerUsers=tSUSErs   #允许连接的用户组(如果不存在则默认全部用户允许连接)
+TerminalServerAdmins=tsadmins #允许连接的超级用户(如果不存在则默认全部用户允许连接)
+ 
+[Sessions]
+MaxSessions=10           #最大会话数
+KillDisconnected=0       #是否立即关闭断开的连接(如果为1,则断开连接后会自动注销)
+IdleTimeLimit=0          #空闲会话时间限制(0为没有限制)
+DisconnectedTimeLimit=0  #断开连接的存活时间(0为没有限制)
+ 
+[Logging]
+LogFile=./sesman.log     #登陆日志文件
+LogLevel=DEBUG           #登陆日志记录等级(级别分别为,core,error,warn,info,debug)
+EnableSyslog=0           #是否开启日志
+SyslogLevel=DEBUG        #系统日志记录等级
+```
