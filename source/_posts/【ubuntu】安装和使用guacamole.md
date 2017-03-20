@@ -14,18 +14,16 @@ categories: 心得笔记
 wget  "http://apache.org/dyn/closer.cgi?action=download&filename=incubator/guacamole/0.9.11-incubating/source/guacamole-server-0.9.11-incubating.tar.gz" -O guacamole-server-0.9.11.tar.gz
 tar -xvf guacamole-server-0.9.11.tar.gz
 ```
+
 > 在安装前我们需要先安装一些依赖包，依赖说明如下图:
-
 ![](http://i1.piimg.com/567571/841734f942541125.png)
-
-> 我这里是安装所有依赖
+> 安装所有依赖
 ```bash
 sudo apt-get install libcairo2-dev  libjpeg62-dev libpng12-dev libossp-uuid-dev -y
 ```
+
 > 接下来安装扩展包，太长不方便上图，直接贴链接了 [说明地址](http://guacamole.incubator.apache.org/doc/0.9.11-incubating/gug/installing-guacamole.html)
-
-> 我这里图方便还是安装所有扩展包
-
+> 我这里图方便安装了所有扩展包
 ```bash
 sudo apt-get install libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev -y
 ```
@@ -97,18 +95,17 @@ sudo vim /etc/guacamole/user-mapping.xml
 ```bash
 ln -s /etc/guacamole/guacamole.properties/usr/share/tomcat7/.guacamole/
 ```
-> 是修改配置文件的权限和所有者, **这很重要** 之前修改了配置一直登录失败，折腾了好久！
+> 修改配置文件的权限和所有者, **这很重要** 之前修改了配置一直登录失败，折腾了好久！
 ```bash
 sudo chmod 600 /etc/guacamole/user-mapping.xml
 sudo chown tomcat7:tomcat7 /etc/guacamole/user-mapping.xml
 ```
+
 > 重启 `tomcat` 和 `guacd`
 ```bash
 sudo /etc/init.d/tomcat7 restart
 sudo /etc/init.d/guacd restart
 ```
 > 到这里基本上就完成了，然后我们打开浏览器测试下
-
 ![](http://p1.bpimg.com/519918/7da6991745c7bafb.png)
-
 成功了，但是现在我们还没法登录到server端，因为我们server端还没有开启`VNC`。
