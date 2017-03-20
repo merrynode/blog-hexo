@@ -101,7 +101,7 @@ sudo chmod 600 /etc/guacamole/user-mapping.xml
 sudo chown tomcat7:tomcat7 /etc/guacamole/user-mapping.xml
 ```
 
-> 重启 `tomcat` 和 `guacd`
+### 重启 `tomcat` 和 `guacd`
 ```bash
 sudo /etc/init.d/tomcat7 restart
 sudo /etc/init.d/guacd restart
