@@ -109,3 +109,58 @@ sudo /etc/init.d/guacd restart
 > 到这里基本上就完成了，然后我们打开浏览器测试下
 ![](http://p1.bpimg.com/519918/7da6991745c7bafb.png)
 成功了，但是现在我们还没法登录到server端，因为我们server端还没有开启`VNC`。
+
+# 配置 `vnc` 
+
+### 安装桌面
+
+* 完整安装
+```bash
+apt install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
+```
+* 仅安装核心功能
+```bash
+sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
+```
+
+ 编辑 ~/.vnc/xstartup, 在 x-window-manager & 的后面追加以下内容，建议先备份
+ ```vim
+gnome-panel &
+gnome-settings-daemon &
+metacity &
+nautilus &
+```
+完整配置文件如下:
+```vim
+#!/bin/sh
+
+# Uncomment the following two lines for normal desktop:
+# unset SESSION_MANAGER
+# exec /etc/X11/xinit/xinitrc
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+
+gnome-panel &
+gnome-settings-daemon &
+metacity &
+nautilus &
+
+```
+### 安装 vnc4server
+```bash
+sudo apt-get install vnc4server
+```
+
+### 启动 `vncserver`，首次启动，需要输入两次密码. 即`user-mapping.xml`配置的 `VNCPASSWORD`
+```bash
+vncserver: 1
+```
+
+> 现在所有的服务都配置好了，接着在之前打开的浏览器输入账号密码，即`user-mapping.xml`配置的 `USRENAME` 和 `PASSWORD`，然后就可以成功连上远程桌面了。
+
+![Markdown](http://p1.bqimg.com/1949/531b2b2004431787.png)
